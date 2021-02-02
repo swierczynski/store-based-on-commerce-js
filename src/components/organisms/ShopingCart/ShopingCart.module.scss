@@ -1,0 +1,25 @@
+.filledCart {
+  padding: 20px;
+}
+
+.title {
+  h3 {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+.allCarts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.subtotal {
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin: 10px;
+  }
+}

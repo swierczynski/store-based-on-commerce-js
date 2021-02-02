@@ -1,0 +1,27 @@
+.wrapper {
+  width: 300px;
+  padding: 10px;
+  min-height: 300px;
+
+  & * {
+    margin-bottom: 10px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .buttons {
+    & * {
+      display: inline-block;
+    }
+
+    p {
+      padding: 0 20px;
+    }
+  }
+}

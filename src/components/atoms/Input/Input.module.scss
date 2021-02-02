@@ -1,0 +1,18 @@
+.input {
+  min-width: 230px;
+  min-height: 35px;
+  border-radius: 30px;
+  border: none;
+  background-color: #3F51B5;
+  color: white;
+  padding: 5px 15px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+  ::placeholder {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(192, 190, 190);
+  }
+}

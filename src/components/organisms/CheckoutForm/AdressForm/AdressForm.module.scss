@@ -1,0 +1,46 @@
+.form {
+  width: 500px;
+  margin: 20px auto;
+
+  h4 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  & form * {
+    margin: 5px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  select {
+    min-width: 230px;
+    min-height: 35px;
+    border-radius: 30px;
+    border: none;
+    background-color: #3F51B5;
+    color: white;
+    padding: 5px 15px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+
+
+  & .selectors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+    .selector {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
