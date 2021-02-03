@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Button.module.scss'
 
-const Button = ({children, onClick, type='button', secandary}) => {
+const Button = ({children, onClick, type='button', secandary, disabled}) => {
 
   const buttonRef = useRef(null);
 
@@ -30,7 +30,7 @@ const Button = ({children, onClick, type='button', secandary}) => {
 
   return ( 
     <div className={styles.wrapper}>
-    <button ref={buttonRef} onClick={e => handleOnClick(e)} type={type} className={secandary ? styles.secandaryButton : styles.button}>{children}</button>
+    <button ref={buttonRef} disabled={disabled} onClick={e => handleOnClick(e)} type={type} className={secandary ? styles.secandaryButton : styles.button}>{children}</button>
     </div>
    );
 }

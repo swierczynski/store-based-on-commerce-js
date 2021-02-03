@@ -40,12 +40,10 @@ const ShopingCart = () => {
 
   const isShopingCart = shopingCart ? isEmpty() : <p>is Loading...</p>
 
-  console.log(shopingCart);
 
   
 
   const allChoosenItems = () => shopingCart.line_items.map(item => {
-      console.log(item, ' item');
       return <CartItem key={item.id} {...item} />
     });
 

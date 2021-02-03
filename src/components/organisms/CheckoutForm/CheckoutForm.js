@@ -9,7 +9,7 @@ import { ShopContext } from '../../../context/ShopContext';
 const steps = ['Shiping address', 'Peyments details'];
 
 const CheckoutForm = () => {
-  const {generateToken, shopingCart, checkoutToken} = useContext(ShopContext)
+  const {generateToken, shopingCart, checkoutToken, order} = useContext(ShopContext)
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({})
 
@@ -22,7 +22,6 @@ const CheckoutForm = () => {
     setShippingData(data)
     nextStep()
   }
-  console.log(shippingData);
 
   const nextStep = ()=> {
     setActiveStep(prevValue => prevValue + 1)
@@ -30,8 +29,9 @@ const CheckoutForm = () => {
   const backStep = ()=> {
     setActiveStep(prevValue => prevValue - 1)
   }
+  console.log(order);
 
-  const selectForm = activeStep === 0 ? <AdressForm next={next} /> : <PaymentForm shippingData={shippingData}/>
+  const selectForm = activeStep === 0 ? <AdressForm next={next} /> : <PaymentForm shippingData={shippingData} nextStep={nextStep} backStep={backStep} checkoutToken={checkoutToken}/>
 
 
   const Form = () => {
@@ -54,7 +54,7 @@ const CheckoutForm = () => {
           ))}
         </Stepper>
       </Paper>
-      {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
+      {activeStep === steps.length ? order && <Confirmation /> : checkoutToken && <Form />}
     </main>
    );
 }

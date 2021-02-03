@@ -9,6 +9,7 @@ const ShopContextProvider = ({children}) => {
   const [products, setProducts] = useState([])
   const [shopingCart, setShopingCart] = useState({})
   const [checkoutToken, setCheckoutToken ] = useState(null)
+  const [order, setOrder] = useState(null)
 
 
 
@@ -62,13 +63,26 @@ const ShopContextProvider = ({children}) => {
     return options
   }
 
+  const refreshCart = async()=> {
+    const newCart = await commerce.cart.refresh()
+
+    setShopingCart(newCart);
+  }
+
+  const handleCaptureCart = async(checkoutTokenId, newOrder) => {
+    const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder)
+    setOrder(incomingOrder)
+    console.log(order);
+    refreshCart()
+  }
+
   useEffect(()=> {
     fetchProducts()
     fetchShopingCart()
   }, [])
 
   return ( 
-    <ShopContext.Provider value={{products, handleAddToCart, totalItems: shopingCart.total_items, shopingCart, handleEmptyCart, handleRemoveFormCart, handleUpdateCartQuantity, fetchShippingCountries, generateToken, fetchShippingSubdivisions, checkoutToken, fetchShippingOptions}}>
+    <ShopContext.Provider value={{products, handleAddToCart, totalItems: shopingCart.total_items, shopingCart, handleEmptyCart, handleRemoveFormCart, handleUpdateCartQuantity, fetchShippingCountries, generateToken, fetchShippingSubdivisions, checkoutToken, fetchShippingOptions, handleCaptureCart, order}}>
       {children}
     </ShopContext.Provider>
    );

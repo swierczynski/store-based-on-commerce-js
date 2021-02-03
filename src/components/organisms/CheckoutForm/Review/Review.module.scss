@@ -1,0 +1,28 @@
+h4 {
+  font-size: 25px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.list {
+  li div {
+    display: flex;
+    height: 60px;
+    margin: 10px 0;
+    justify-content: space-around;
+
+    p {
+      width: 116px;
+      align-self: center;
+    }
+
+    div {
+      width: 100px;
+
+      img {
+        height: auto;
+      }
+    }
+  }
+}
